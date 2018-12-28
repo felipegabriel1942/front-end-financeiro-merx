@@ -1,0 +1,14 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let despesa of despesas">
+      <td>{{despesa.descricao}}</td>
+      <td>{{despesa.valor | currency:'BRL'}}</td>
+    </tr>
+  </tbody>
+</table>
