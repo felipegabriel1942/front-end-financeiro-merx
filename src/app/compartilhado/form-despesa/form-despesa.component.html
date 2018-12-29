@@ -1,12 +1,88 @@
 <form #f="ngForm" (ngSubmit)="onSubmit()">
   
   <div class="form-group body">
-    <p-dropdown 
-      [options]="tipoDespesa" 
-      [(ngModel)]="despesa.codigoTipoDespesa"
-      optionLabel="descricao"
-      placeholder="Selecione um tipo..."
-      name="descricao"
-      ></p-dropdown>
+      <div class="ui-g">
+        <div class="ui-g-2">
+          <label for="cmbTipoDespesa"><b>Tipo de Despesa:</b></label>
+        </div>
+        <div class="ui-g-10">
+          <p-dropdown 
+            [options]="tipoDespesa" 
+            [(ngModel)]="despesa.codigoTipoDespesa"
+            optionLabel="descricao"
+            placeholder="Selecione um tipo..."
+            name="descricao"
+            [showClear]="true"
+            id="cmbTipoDespesa"
+            required
+            ></p-dropdown>
+        </div>
+      </div>
+
+      <div class="ui-g">
+          <div class="ui-g-2">
+            <label for="cmbAnoMes"><b>Ano/Mês:</b></label>
+          </div>
+          <div class="ui-g-10">
+            <p-dropdown 
+              [options]="anoMes" 
+              [(ngModel)]="despesa.anoMes"
+              placeholder="Selecione um ano/mês..."
+              optionLabel="label"
+              name="anoMes"
+              [showClear]="true"
+              id="cmbAnoMes"
+              required
+              ></p-dropdown>
+          </div>
+        </div>
+
+      
+
+      <div class="ui-g">
+        <div class="ui-g-2">
+          <label for="txtDescricao"><b>Descrição:</b> </label>
+        </div>
+        <div class="ui-g-10">
+          <input 
+            type="text" 
+            pInputText
+            id="txtDescricao"
+            size="40"
+            required
+            >
+        </div>
+      </div>
+
+       <div class="ui-g">
+        <div class="ui-g-2">
+          <label for="txtValor"><b>Valor:</b> </label>
+        </div>
+        <div class="ui-g-10">
+          <input 
+            type="number" 
+            pInputText
+            id="txtValor"
+            size="40"
+            required
+            >
+        </div>
+      </div>
+
+      <div class="ui-g">
+          <div class="ui-g-2">
+            <label for="txtUsuario"><b>Usuario:</b> </label>
+          </div>
+          <div class="ui-g-10">
+            <input 
+              type="number" 
+              pInputText
+              id="txtUsuario"
+              size="40"
+              required
+              >
+          </div>
+        </div>
+
   </div>
 </form>

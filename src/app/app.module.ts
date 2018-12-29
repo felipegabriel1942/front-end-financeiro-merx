@@ -17,7 +17,8 @@ import { TipoDespesaService } from './services/tipo-despesa.service';
 
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
-
+import { PanelModule } from 'primeng/panel';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import { DropdownModule } from 'primeng/dropdown';
     TableModule,
     FormsModule,
     DropdownModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    PanelModule,
+    CardModule
   ],
   providers: [TipoDespesaService],
   bootstrap: [AppComponent]

@@ -1,23 +1,25 @@
 
 
-<div class="text-right botao-cadastrar">
-  <button type="button" class="btn btn-success" routerLink="/listar-despesas/cadastro">Cadastrar despesa</button>
-</div>
-<div class="corpo">
-  <p-table [value]="despesas">
-    <ng-template pTemplate="header">
-      <tr>
-        <th>Descrição</th>
-        <th>Ano/Mês referencia</th>
-        <th>Valor</th>
-      </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-despesas>
-      <tr>
-        <td>{{despesas.descricao}}</td>
-        <td>{{despesas.anoMes}}</td>
-        <td>{{despesas.valor | currency:'BRL'}}</td>
-      </tr>
-  </ng-template>
-  </p-table>
-</div>
+<p-card class="card">
+  <div class="text-right botao-cadastrar">
+    <button type="button" class="btn btn-success" routerLink="/listar-despesas/cadastro">Cadastrar despesa</button>
+  </div>
+  <div class="corpo">
+    <p-table [value]="despesas">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Descrição</th>
+          <th>Ano/Mês referencia</th>
+          <th>Valor</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-despesas>
+        <tr>
+          <td>{{despesas.descricao}}</td>
+          <td>{{despesas.anoMes}}</td>
+          <td>{{despesas.valor | currency:'BRL'}}</td>
+        </tr>
+    </ng-template>
+    </p-table>
+  </div>
+</p-card>
