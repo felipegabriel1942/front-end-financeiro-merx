@@ -1,0 +1,12 @@
+<form #f="ngForm" (ngSubmit)="onSubmit()">
+  
+  <div class="form-group body">
+    <p-dropdown 
+      [options]="tipoDespesa" 
+      [(ngModel)]="despesa.codigoTipoDespesa"
+      optionLabel="descricao"
+      placeholder="Selecione um tipo..."
+      name="descricao"
+      ></p-dropdown>
+  </div>
+</form>

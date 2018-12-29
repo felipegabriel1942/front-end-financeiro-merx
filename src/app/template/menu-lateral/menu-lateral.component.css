@@ -1,0 +1,25 @@
+.menu-lateral {
+    
+    height: 100%;
+    background-color:#000099;
+    border-top: 1px solid #333;
+    flex-shrink: 0;
+    overflow: hidden;
+    transition: width .5s;
+}
+
+.menu-lateral ul {
+    list-style: none;
+    padding: 10px 0px;
+}
+
+.menu-lateral ul li.active {
+    background-color: #080808;
+}
+
+.menu-lateral ul li a {
+    display: block;
+    color: #ffffff;
+    padding: 10px 15px;
+    white-space: nowrap;
+}

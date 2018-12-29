@@ -1,14 +1,23 @@
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Descrição</th>
-      <th>Valor</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let despesa of despesas">
-      <td>{{despesa.descricao}}</td>
-      <td>{{despesa.valor | currency:'BRL'}}</td>
-    </tr>
-  </tbody>
-</table>
+
+
+<div class="text-right botao-cadastrar">
+  <button type="button" class="btn btn-success" routerLink="/listar-despesas/cadastro">Cadastrar despesa</button>
+</div>
+<div class="corpo">
+  <p-table [value]="despesas">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Descrição</th>
+        <th>Ano/Mês referencia</th>
+        <th>Valor</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-despesas>
+      <tr>
+        <td>{{despesas.descricao}}</td>
+        <td>{{despesas.anoMes}}</td>
+        <td>{{despesas.valor | currency:'BRL'}}</td>
+      </tr>
+  </ng-template>
+  </p-table>
+</div>
