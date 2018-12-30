@@ -16,4 +16,9 @@ export class DespesaService {
     const url = `${environment.merxApiUrl}/despesas`;
     return this.http.get<Despesa[]>(url);
   }
+
+  addDespesa(despesa: Despesa): Observable<Despesa> {
+    const url = `${environment.merxApiUrl}/despesas`;
+    return this.http.post<Despesa>(url, despesa);
+  }
 }

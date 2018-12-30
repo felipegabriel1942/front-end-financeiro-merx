@@ -14,7 +14,8 @@ export class FormDespesaComponent implements OnInit {
 
   tipoDespesa: TipoDespesa[];
   tipoDespesaSelecionada: TipoDespesa;
-  anoMes: any[];
+  anoMes: SelectItem[];
+  anoMesSelecionado: string;
 
   constructor(private tipoDespesaService: TipoDespesaService) {
     this.anoMes = [
@@ -43,9 +44,13 @@ export class FormDespesaComponent implements OnInit {
 
   ngOnInit() {
     this.getListaTipoDespesas();
+    this.anoMesSelecionado = '';
+    this.tipoDespesaSelecionada = null;
   }
 
   onSubmit() {
+    this.despesa.anoMes = this.anoMesSelecionado;
+    this.despesa.fkTipoDespesa = this.tipoDespesaSelecionada.id;
     this.outputDespesa.emit(this.despesa);
   }
 

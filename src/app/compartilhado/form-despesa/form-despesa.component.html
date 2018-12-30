@@ -8,7 +8,7 @@
         <div class="ui-g-10">
           <p-dropdown 
             [options]="tipoDespesa" 
-            [(ngModel)]="despesa.codigoTipoDespesa"
+            [(ngModel)]="tipoDespesaSelecionada"
             optionLabel="descricao"
             placeholder="Selecione um tipo..."
             name="descricao"
@@ -26,14 +26,14 @@
           <div class="ui-g-10">
             <p-dropdown 
               [options]="anoMes" 
-              [(ngModel)]="despesa.anoMes"
+              [(ngModel)]="anoMesSelecionado"
               placeholder="Selecione um ano/mês..."
-              optionLabel="label"
               name="anoMes"
               [showClear]="true"
               id="cmbAnoMes"
               required
               ></p-dropdown>
+              <p>Selected Car: {{anoMesSelecionado || 'none'}}</p>
           </div>
         </div>
 
@@ -44,11 +44,14 @@
           <label for="txtDescricao"><b>Descrição:</b> </label>
         </div>
         <div class="ui-g-10">
-          <input 
+          <input
+            #txtDescricao="ngModel" 
             type="text" 
             pInputText
             id="txtDescricao"
             size="40"
+            name="txtDescricao"
+            [(ngModel)]="despesa.descricao"
             required
             >
         </div>
@@ -59,11 +62,14 @@
           <label for="txtValor"><b>Valor:</b> </label>
         </div>
         <div class="ui-g-10">
-          <input 
+          <input
+            #txtValor 
             type="number" 
             pInputText
             id="txtValor"
+            name="txtValor"
             size="40"
+            [(ngModel)]="despesa.valor"
             required
             >
         </div>
@@ -75,14 +81,17 @@
           </div>
           <div class="ui-g-10">
             <input 
-              type="number" 
+              type="number"
+              #txtUsuario
+              name="txtUsuario" 
               pInputText
               id="txtUsuario"
               size="40"
+              [(ngModel)]="despesa.fkUsuario"
               required
               >
           </div>
         </div>
-
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Salvar</button>
   </div>
 </form>

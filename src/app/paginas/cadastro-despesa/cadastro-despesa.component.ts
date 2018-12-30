@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DespesaService } from 'src/app/services/despesa.service';
 import { Despesa } from 'src/app/interfaces/despesa';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,10 +11,14 @@ import { Despesa } from 'src/app/interfaces/despesa';
 })
 export class CadastroDespesaComponent {
 
-constructor(private despesaService: DespesaService) { }
+constructor(private despesaService: DespesaService, private router: Router) { }
 
- salvarDespesa(despesa: Despesa) {
-  
+ addDespesa(despesa: Despesa) {
+    this.despesaService.addDespesa(despesa)
+    .subscribe(
+      () => { this.router.navigateByUrl('/listar-despesas'); },
+      () => {console.log('Erro ao salvar despesa'); }
+    );
  }
 
 }
