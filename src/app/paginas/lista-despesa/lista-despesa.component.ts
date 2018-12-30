@@ -26,4 +26,12 @@ export class ListaDespesaComponent implements OnInit {
     });
   }
 
+  deletaDespesa(id: number) {
+    this.despesaService.deletaDespesa(id)
+    .subscribe(() => {
+      this.getListaDespesas();
+    });
+  }
+
+
 }

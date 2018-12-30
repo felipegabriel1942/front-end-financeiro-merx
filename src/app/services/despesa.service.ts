@@ -21,4 +21,9 @@ export class DespesaService {
     const url = `${environment.merxApiUrl}/despesas`;
     return this.http.post<Despesa>(url, despesa);
   }
+
+  deletaDespesa(id: number): Observable<Despesa> {
+    const url = `${environment.merxApiUrl}/despesas/${id}`;
+    return this.http.delete<Despesa>(url);
+  }
 }
