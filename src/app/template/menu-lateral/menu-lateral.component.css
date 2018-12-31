@@ -1,5 +1,5 @@
 .menu-lateral {
-    
+    width: 0px;  
     height: 100%;
     background-color:#000099;
     border-top: 1px solid #333;
@@ -11,6 +11,10 @@
 .menu-lateral ul {
     list-style: none;
     padding: 10px 0px;
+}
+
+.menu-lateral.menu-open {
+    width: 200px;
 }
 
 .menu-lateral ul li.active {

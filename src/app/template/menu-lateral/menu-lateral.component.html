@@ -1,5 +1,8 @@
-<div class="menu-lateral" id="barraLateral">
-  <ul>
-    <li><a routerLink="/listar-despesas">Despesas</a></li>
-  </ul>
-</div>
+
+  <div class="menu-lateral" [class.menu-open]="display">
+    <ul>
+        <li><a routerLink="#"><i class="pi pi-chart-bar"></i>Resumo</a></li>
+      <li><a routerLink="/listar-despesas"><i class="pi pi-minus-circle" style="color: red;"></i>Despesas</a></li>
+      <li><a routerLink="#"><i class="pi pi-plus-circle" style="color: green;"></i>Receitas</a></li>
+    </ul>
+  </div>

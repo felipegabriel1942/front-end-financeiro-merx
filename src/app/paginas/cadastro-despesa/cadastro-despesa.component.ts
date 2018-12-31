@@ -17,7 +17,7 @@ constructor(private despesaService: DespesaService, private router: Router) { }
     this.despesaService.addDespesa(despesa)
     .subscribe(
       () => { this.router.navigateByUrl('/listar-despesas'); },
-      () => {console.log('Erro ao salvar despesa'); }
+      () => { console.log('Erro ao salvar despesa'); }
     );
  }
 

@@ -3,3 +3,22 @@
 @import "~primeng/resources/themes/nova-light/theme.css";
 @import "~primeng/resources/primeng.min.css";
 @import "~primeicons/primeicons.css";
+
+body {
+   
+    background-color:  #ebebe0;
+}
+
+.main {
+    display: flex;
+    background-color: #ecf0f5;
+    min-height: calc(100vh - 52px);
+    overflow: hidden;
+}
+
+.content {
+    width: 100%;
+    padding-top: 20px;
+}
+
+

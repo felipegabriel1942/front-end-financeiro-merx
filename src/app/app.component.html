@@ -1,9 +1,13 @@
 
-<app-menu-superior></app-menu-superior>
-<div class="main">       
-    <app-menu-lateral></app-menu-lateral>   
-    <div class="container">
-        <router-outlet></router-outlet>       
+<app-login *ngIf="!logar"></app-login>
+
+<div *ngIf="logar">
+    <app-menu-superior (onToggle)="menuLateral.toggle()"></app-menu-superior>
+    <div class="main">       
+        <app-menu-lateral #menuLateral></app-menu-lateral>   
+        <div class="container">
+            <router-outlet></router-outlet>       
+        </div>
     </div>
 </div>
 

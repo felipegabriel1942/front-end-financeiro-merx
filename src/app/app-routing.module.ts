@@ -6,9 +6,10 @@ import { CadastroDespesaComponent } from './paginas/cadastro-despesa/cadastro-de
 
 const routes = [
   {path: '', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'listar-despesas/cadastro', component: CadastroDespesaComponent},
   {path: 'listar-despesas', component: ListaDespesaComponent},
-  {path: '**', redirectTo: '/home'}
+  {path: '**', redirectTo: 'home'}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

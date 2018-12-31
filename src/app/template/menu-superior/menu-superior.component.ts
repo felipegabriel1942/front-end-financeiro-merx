@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-menu-superior',
@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuSuperiorComponent implements OnInit {
 
+  @Output() onToggle = new EventEmitter;
   constructor() { }
 
   ngOnInit() {
   }
 
+  disparaEvento() {
+    this.onToggle.emit();
+  }
 }

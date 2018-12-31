@@ -1,0 +1,22 @@
+  
+<div>  
+  <p-card class="painel-login" >
+
+    <h4 style="margin-left: 20px;"><i class="pi pi-money-bill" style="color: green;"></i>Financeiro Merx</h4>
+    <div class="ui-g" style="margin-top:30px;margin-left:30px;">
+      <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input type="text" pInputText placeholder="Login" [(ngModel)]="usuario.login" required>
+      </div>
+    </div>
+    <div class="ui-g" style="margin-top:10px;margin-left:30px;">
+      <div class="ui-inputgroup">
+          <span class="ui-inputgroup-addon"><i class="pi pi-key"></i></span>
+        <input type="password" pInputText id="senha" placeholder="Senha" [(ngModel)]="usuario.senha" name="senha" required>
+      </div>
+    </div>
+    <div class="text-right" style="margin-top:25px;">
+      <button type="submit" name="logar" (click)="verificarLogin()" class="btn btn-primary ">Logar</button>
+    </div>
+  </p-card>
+</div>
