@@ -4,16 +4,22 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 import { Despesa } from '../interfaces/despesa';
+import { Usuario } from '../interfaces/usuario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DespesaService {
 
-  constructor(private http: HttpClient) { }
+  usuario: Usuario;
+
+  constructor(private http: HttpClient) {
+    this.usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+
+  }
 
   getListaDespesa(): Observable<Despesa[]> {
-    const url = `${environment.merxApiUrl}/despesas`;
+    const url = `${environment.merxApiUrl}/despesas?usuario=${this.usuario.id}`;
     return this.http.get<Despesa[]>(url);
   }
 
