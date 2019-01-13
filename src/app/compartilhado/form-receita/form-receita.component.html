@@ -1,0 +1,60 @@
+<form #f="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group body">
+      <div class="ui-g">
+          <div class="ui-g-2">
+            <label for="cmbAnoMes"><b>Ano/Mês:</b></label>
+          </div>
+          <div class="ui-g-10">
+            <p-dropdown
+              [options]="anoMes" 
+              [(ngModel)]="anoMesSelecionado"
+              placeholder="Selecione um ano/mês..."
+              name="anoMes"
+              [showClear]="true"
+              id="anoMes"
+              required
+              ></p-dropdown>
+          </div>
+        </div>
+
+        <div class="ui-g">
+        <div class="ui-g-2">
+          <label for="txtDescricao"><b>Descrição:</b> </label>
+        </div>
+        <div class="ui-g-10">
+          <input
+            #txtDescricao="ngModel" 
+            type="text" 
+            pInputText
+            id="txtDescricao"
+            size="40"
+            name="txtDescricao"
+            [(ngModel)]="receita.descricao"
+            required
+            >
+        </div>
+      </div>
+
+       <div class="ui-g">
+        <div class="ui-g-2">
+          <label for="txtValor"><b>Valor:</b> </label>
+        </div>
+        <div class="ui-g-10">
+          <input
+            #txtValor 
+            type="number" 
+            pInputText
+            id="txtValor"
+            name="txtValor"
+            size="40"
+            [(ngModel)]="receita.valor"
+            required
+            >
+        </div>
+      </div>
+      <div class="text-right">
+          <button class="btn btn-danger" routerLink="/listar-receitas" style="margin-right: 10px;">Cancelar</button>
+          <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Salvar</button>
+      </div>
+    </div>
+</form>

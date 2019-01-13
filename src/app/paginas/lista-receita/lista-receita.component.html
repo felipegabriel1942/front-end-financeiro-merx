@@ -1,0 +1,31 @@
+<p-card class="card">
+  <div class="ui-g botao-cadastrar">
+    <div class="ui-g-8 text-left">
+        <h3><i class="pi pi-list" style="color: green;"></i>Lista de Receitas</h3>
+    </div>
+    <div class="ui-g-4 text-right">
+        <button type="button" class="btn btn-success" routerLink="/listar-receitas/cadastro">Cadastrar receita</button>
+    </div>    
+  </div>
+  <div class="corpo">
+    <p-table [value]="receitas" paginator="true" rows="5">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Descrição</th>
+          <th>Ano/Mês referencia</th>
+          <th>Valor</th>
+          <th>Ações</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-receitas>
+        <tr>
+          <td>{{receitas.descricao}}</td>
+          <td>{{receitas.anoMes}}</td>
+          <td>{{receitas.valor | currency:'BRL'}}</td>
+          <td></td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+</p-card>

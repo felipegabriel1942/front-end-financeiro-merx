@@ -24,6 +24,10 @@ import { CardModule } from 'primeng/card';
 import { SidebarModule } from 'primeng/sidebar';
 import { ErroComponent } from './mensagens/erro/erro.component';
 import { EditarDespesaComponent } from './paginas/editar-despesa/editar-despesa.component';
+import { CadastroReceitaComponent } from './paginas/cadastro-receita/cadastro-receita.component';
+import { FormReceitaComponent } from './compartilhado/form-receita/form-receita.component';
+import { ListaReceitaComponent } from './paginas/lista-receita/lista-receita.component';
+import { ReceitaService } from './services/receita.service';
 
 
 @NgModule({
@@ -37,7 +41,10 @@ import { EditarDespesaComponent } from './paginas/editar-despesa/editar-despesa.
     FormDespesaComponent,
     LoginComponent,
     ErroComponent,
-    EditarDespesaComponent
+    EditarDespesaComponent,
+    CadastroReceitaComponent,
+    FormReceitaComponent,
+    ListaReceitaComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +58,7 @@ import { EditarDespesaComponent } from './paginas/editar-despesa/editar-despesa.
     CardModule,
     SidebarModule
   ],
-  providers: [TipoDespesaService, DespesaService, UsuarioService],
+  providers: [TipoDespesaService, DespesaService, UsuarioService, ReceitaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
