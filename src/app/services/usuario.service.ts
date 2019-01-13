@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class UsuarioService {
   @ViewChild(ErroComponent) erroMsgComponent: ErroComponent;
   logarEmitter: EventEmitter<boolean> = new EventEmitter();
+  deslogarEmitter: EventEmitter<boolean> = new EventEmitter();
+
   public usuario: Usuario;
   constructor(private http: HttpClient,
     private router: Router) { }
@@ -22,8 +24,12 @@ export class UsuarioService {
     .subscribe((dados: Usuario) => {
               localStorage.setItem('usuarioLogado', JSON.stringify(dados));
               this.logarEmitter.emit(true);
-              this.router.navigateByUrl('/'); },
+              this.router.navigateByUrl('/home'); },
         () => {console.log('Login ou senha inválidos'); }
     );
+  }
+
+  deslogarUsuario() {
+    this.logarEmitter.emit(false);
   }
 }

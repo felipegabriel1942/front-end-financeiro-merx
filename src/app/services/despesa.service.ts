@@ -23,6 +23,12 @@ export class DespesaService {
     return this.http.get<Despesa[]>(url);
   }
 
+  getDespesa(id: number): Observable<Despesa> {
+    const url = `${environment.merxApiUrl}/despesas/${id}`;
+    console.log(url);
+    return this.http.get<Despesa>(url);
+  }
+
   addDespesa(despesa: Despesa): Observable<Despesa> {
     const url = `${environment.merxApiUrl}/despesas`;
     return this.http.post<Despesa>(url, despesa);
@@ -31,5 +37,10 @@ export class DespesaService {
   deletaDespesa(id: number): Observable<Despesa> {
     const url = `${environment.merxApiUrl}/despesas/${id}`;
     return this.http.delete<Despesa>(url);
+  }
+
+  atualizarDespesa(despesa: Despesa): Observable<Despesa> {
+    const url = `${environment.merxApiUrl}/despesas`;
+    return this.http.put<Despesa>(url, despesa);
   }
 }

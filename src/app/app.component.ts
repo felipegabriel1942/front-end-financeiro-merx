@@ -12,10 +12,22 @@ export class AppComponent implements OnInit {
   logar = false;
   public usuario: Usuario;
 
-  constructor(private usuarioService: UsuarioService) {}
+  constructor(private usuarioService: UsuarioService) {
+  }
 
   ngOnInit() {
-     this.usuarioService.logarEmitter.subscribe(
-     logarSistema => this.logar = logarSistema);
+    this.usuarioService.logarEmitter.subscribe(
+    logarSistema => this.logar = logarSistema);
+  }
+
+  logarSistema() {
+    this.usuarioService.logarEmitter.subscribe(
+    logarSistema => this.logar = logarSistema);
+  }
+
+  deslogarSistema() {
+    this.usuarioService.deslogarEmitter.subscribe(
+    deslogarSistema => this.logar = deslogarSistema);
+    localStorage.setItem('usuarioLogado', JSON.stringify(null));
   }
 }

@@ -23,6 +23,7 @@ import { PanelModule } from 'primeng/panel';
 import { CardModule } from 'primeng/card';
 import { SidebarModule } from 'primeng/sidebar';
 import { ErroComponent } from './mensagens/erro/erro.component';
+import { EditarDespesaComponent } from './paginas/editar-despesa/editar-despesa.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ErroComponent } from './mensagens/erro/erro.component';
     CadastroDespesaComponent,
     FormDespesaComponent,
     LoginComponent,
-    ErroComponent
+    ErroComponent,
+    EditarDespesaComponent
   ],
   imports: [
     BrowserModule,

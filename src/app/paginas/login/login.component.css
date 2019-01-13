@@ -8,4 +8,19 @@
     margin-left: -150px;
 }
 
+.fundo-login {
+    background-image: url(/src/assets/img/businesschartscommerce265087.jpg);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    -webkit-background-size: 100%;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+
+
+
 

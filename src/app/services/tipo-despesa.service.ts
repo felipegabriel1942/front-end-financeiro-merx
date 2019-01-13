@@ -17,4 +17,9 @@ export class TipoDespesaService {
     const url = `${environment.merxApiUrl}/tipo-despesas`;
     return this.http.get<TipoDespesa[]>(url);
   }
+
+  getTipoDespesa(id: number): Observable<TipoDespesa> {
+    const url = `${environment.merxApiUrl}/tipo-despesas/${id}`;
+    return this.http.get<TipoDespesa>(url);
+  }
 }

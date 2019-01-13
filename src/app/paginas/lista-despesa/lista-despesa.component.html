@@ -24,7 +24,8 @@
           <td>{{despesas.descricao}}</td>
           <td>{{despesas.anoMes}}</td>
           <td>{{despesas.valor | currency:'BRL'}}</td>
-          <td><button type="button" class="btn btn-danger btn-sm ml-1" (click)="deletaDespesa(despesas.id)">X</button></td>
+          <td><button type="button" class="btn btn-danger btn-sm ml-1" (click)="deletaDespesa(despesas.id)">Excluir</button>
+              <button type="button" class="btn btn-primary btn-sm ml-1" [routerLink]="['/listar-despesas/editar']" [queryParams]="{id: despesas.id, idTipoDespesa: despesas.fkTipoDespesa}" >Editar</button></td>
         </tr>
     </ng-template>
     </p-table>
