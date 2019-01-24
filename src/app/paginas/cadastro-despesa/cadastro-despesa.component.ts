@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { DespesaService } from 'src/app/services/despesa.service';
 import { Despesa } from 'src/app/interfaces/despesa';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/components/common/messageservice';
 
 
 @Component({
@@ -11,13 +12,19 @@ import { Router } from '@angular/router';
 })
 export class CadastroDespesaComponent {
 
-constructor(private despesaService: DespesaService, private router: Router) { }
+static mensagemSucessoCadastroDespesa = new EventEmitter<string>();
+
+
+constructor(private despesaService: DespesaService,
+  private router: Router,
+  private messageService: MessageService) { }
 
  addDespesa(despesa: Despesa) {
     this.despesaService.addDespesa(despesa)
     .subscribe(
-      () => { this.router.navigateByUrl('/listar-despesas'); },
-      () => { console.log('Erro ao salvar despesa'); }
+      () => { CadastroDespesaComponent.mensagemSucessoCadastroDespesa.emit('sucesso');
+              this.router.navigateByUrl('/listar-despesas'); },
+      () => { this.messageService.add({severity: 'error', summary: 'Erro!', detail: 'Erro ao cadastrar despesa.'}); }
     );
  }
 

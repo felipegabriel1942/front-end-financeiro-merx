@@ -16,12 +16,6 @@ import { TipoDespesaService } from './services/tipo-despesa.service';
 import { LoginComponent } from './paginas/login/login.component';
 import { DespesaService } from './services/despesa.service';
 import { UsuarioService } from './services/usuario.service';
-
-import { TableModule } from 'primeng/table';
-import { DropdownModule } from 'primeng/dropdown';
-import { PanelModule } from 'primeng/panel';
-import { CardModule } from 'primeng/card';
-import { SidebarModule } from 'primeng/sidebar';
 import { ErroComponent } from './mensagens/erro/erro.component';
 import { EditarDespesaComponent } from './paginas/editar-despesa/editar-despesa.component';
 import { CadastroReceitaComponent } from './paginas/cadastro-receita/cadastro-receita.component';
@@ -29,6 +23,13 @@ import { FormReceitaComponent } from './compartilhado/form-receita/form-receita.
 import { ListaReceitaComponent } from './paginas/lista-receita/lista-receita.component';
 import { ReceitaService } from './services/receita.service';
 
+import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown';
+import { PanelModule } from 'primeng/panel';
+import { CardModule } from 'primeng/card';
+import { SidebarModule } from 'primeng/sidebar';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/components/common/messageservice';
 
 @NgModule({
   declarations: [
@@ -56,9 +57,10 @@ import { ReceitaService } from './services/receita.service';
     BrowserAnimationsModule,
     PanelModule,
     CardModule,
-    SidebarModule
+    SidebarModule,
+    ToastModule
   ],
-  providers: [TipoDespesaService, DespesaService, UsuarioService, ReceitaService],
+  providers: [TipoDespesaService, DespesaService, UsuarioService, ReceitaService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 
 
 <p-card class="card">
+    <p-toast></p-toast> 
   <div class="ui-g botao-cadastrar">
     <div class="ui-g-8 text-left">
         <h3><i class="pi pi-list" style="color: red;"></i>Lista de Despesas</h3>
@@ -10,6 +11,7 @@
     </div>    
   </div>
   <div class="corpo">
+     
     <p-table [value]="despesas" paginator="true" rows="5">
       <ng-template pTemplate="header">
         <tr>

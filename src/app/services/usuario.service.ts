@@ -1,10 +1,10 @@
 import { Injectable, EventEmitter, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Usuario } from '../interfaces/usuario';
 import { environment } from 'src/environments/environment';
 import { ErroComponent } from '../mensagens/erro/erro.component';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/components/common/messageservice';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,8 @@ export class UsuarioService {
 
   public usuario: Usuario;
   constructor(private http: HttpClient,
-    private router: Router) { }
+    private router: Router,
+    private messageService: MessageService) { }
 
   verificarUsuario(usuario: Usuario) {
     const url = `${environment.merxApiUrl}/usuarios?login=${usuario.login}&senha=${usuario.senha}`;
@@ -25,7 +26,7 @@ export class UsuarioService {
               localStorage.setItem('usuarioLogado', JSON.stringify(dados));
               this.logarEmitter.emit(true);
               this.router.navigateByUrl('/home'); },
-        () => {console.log('Login ou senha inválidos'); }
+        () => {(this.messageService.add({severity: 'error', summary: 'Falha ao logar!', detail: 'Usúario ou Senha inválidos'})); }
     );
   }
 
