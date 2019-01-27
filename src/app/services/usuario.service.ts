@@ -25,7 +25,8 @@ export class UsuarioService {
     .subscribe((dados: Usuario) => {
               localStorage.setItem('usuarioLogado', JSON.stringify(dados));
               this.logarEmitter.emit(true);
-              this.router.navigateByUrl('/home'); },
+              this.router.navigateByUrl('/home');
+              this.messageService.add({severity: 'success', summary: 'Conectado!', detail: 'Bem vindo ao sistema!'}); },
         () => {(this.messageService.add({severity: 'error', summary: 'Falha ao logar!', detail: 'Usúario ou Senha inválidos'})); }
     );
   }

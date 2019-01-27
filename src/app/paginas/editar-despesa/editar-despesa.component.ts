@@ -4,6 +4,7 @@ import { DespesaService } from 'src/app/services/despesa.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TipoDespesa } from 'src/app/interfaces/tipo-despesa';
 import { TipoDespesaService } from 'src/app/services/tipo-despesa.service';
+import { MessageService } from 'primeng/components/common/messageservice';
 
 @Component ({
   selector: 'app-editar-despesa',
@@ -19,7 +20,8 @@ export class EditarDespesaComponent implements OnInit {
   constructor(private despesaService: DespesaService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private tipoDespesaService: TipoDespesaService) {
+    private tipoDespesaService: TipoDespesaService,
+    private messageService: MessageService) {
   }
 
   ngOnInit() {
@@ -50,7 +52,9 @@ export class EditarDespesaComponent implements OnInit {
   atualizarDespesa(despesa: Despesa) {
     this.despesaService.atualizarDespesa(despesa)
     .subscribe(
-      () => {this.router.navigateByUrl('listar-despesas'); }
+      () => {
+        this.messageService.add({severity: 'success', summary: 'Sucesso!', detail: 'Despesa editada.'});
+        this.router.navigateByUrl('listar-despesas'); }
     );
   }
 }

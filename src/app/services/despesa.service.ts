@@ -6,6 +6,9 @@ import { environment } from '../../environments/environment';
 import { Despesa } from '../interfaces/despesa';
 import { Usuario } from '../interfaces/usuario';
 
+import { MessageService } from 'primeng/components/common/messageservice';
+import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +16,9 @@ export class DespesaService {
 
   usuario: Usuario;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+    private messageService: MessageService,
+    private router: Router) {
     this.usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
 
   }
@@ -25,13 +30,16 @@ export class DespesaService {
 
   getDespesa(id: number): Observable<Despesa> {
     const url = `${environment.merxApiUrl}/despesas/${id}`;
-    console.log(url);
     return this.http.get<Despesa>(url);
   }
 
-  addDespesa(despesa: Despesa): Observable<Despesa> {
+  addDespesa(despesa: Despesa) {
     const url = `${environment.merxApiUrl}/despesas`;
-    return this.http.post<Despesa>(url, despesa);
+    return this.http.post<Despesa>(url, despesa)
+    .subscribe(() => {
+      this.router.navigateByUrl('/listar-despesas');
+      this.messageService.add({severity: 'success', summary: 'Sucesso!', detail: 'Despesa cadastrada.'});
+    });
   }
 
   deletaDespesa(id: number): Observable<Despesa> {

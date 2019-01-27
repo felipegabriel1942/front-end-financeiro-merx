@@ -15,17 +15,9 @@ export class CadastroDespesaComponent {
 static mensagemSucessoCadastroDespesa = new EventEmitter<string>();
 
 
-constructor(private despesaService: DespesaService,
-  private router: Router,
-  private messageService: MessageService) { }
+constructor(private despesaService: DespesaService) { }
 
  addDespesa(despesa: Despesa) {
-    this.despesaService.addDespesa(despesa)
-    .subscribe(
-      () => { CadastroDespesaComponent.mensagemSucessoCadastroDespesa.emit('sucesso');
-              this.router.navigateByUrl('/listar-despesas'); },
-      () => { this.messageService.add({severity: 'error', summary: 'Erro!', detail: 'Erro ao cadastrar despesa.'}); }
-    );
+    this.despesaService.addDespesa(despesa);
  }
-
 }

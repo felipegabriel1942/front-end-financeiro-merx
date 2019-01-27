@@ -1,6 +1,12 @@
 <form #f="ngForm" (ngSubmit)="onSubmit()">
-  
+  <div class="ui-g">
+    <div class="ui-g-8 text-left" style="margin-top: 35px;">
+        <h3 *ngIf="despesa.id == null"><img src="../../../assets/img/saindo-carteira.png">Cadastro de Despesa</h3>
+        <h3 *ngIf="despesa.id != null"><img src="../../../assets/img/saindo-carteira.png">Edição de Despesa</h3>
+    </div>
+  </div>
   <div class="form-group body">
+      <p-card styleClass="ui-card-shadow">
       <div class="ui-g">
         <div class="ui-g-2">
           <label for="cmbTipoDespesa"><b>Tipo de Despesa:</b></label>
@@ -77,5 +83,7 @@
           <button class="btn btn-danger" routerLink="/listar-despesas" style="margin-right: 10px;">Cancelar</button>
           <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Salvar</button>
       </div>
+    </p-card>
   </div>
+
 </form>
